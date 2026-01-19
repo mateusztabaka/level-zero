@@ -53,6 +53,7 @@ if (UNIX)
     set(THREADS_PREFER_PTHREAD_FLAG TRUE)
     find_package(Threads REQUIRED)
     target_link_libraries (${TARGET_LOADER_NAME} PRIVATE Threads::Threads)
+    target_link_options(${TARGET_LOADER_NAME} PRIVATE -Wl,--version-script=${CMAKE_CURRENT_SOURCE_DIR}/ze.exports)
 endif()
 
 if(WIN32)
